@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Header} from './components/Header'
+import {Nav} from './components/Nav'
 
-export function App() {
+function App() {
   return (
     <div className="container-fluid">
       <Header />
+      <Nav />
     </div>
   );
 }
