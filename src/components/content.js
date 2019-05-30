@@ -26,8 +26,9 @@ class Content extends React.Component {
         </div>
       );
     } else if (renderState === 'home'){
-      return (<div id="content">
-        <div className="jumbotron jumbotron-fluid">
+      return (
+        <div id="content">
+        <div className="jumbotron jumbotron-fluid mb-auto">
           <div className="container">
               <h1 className="display-4">Welcome!</h1>
               <p className="lead">
