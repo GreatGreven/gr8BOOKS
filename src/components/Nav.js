@@ -43,7 +43,7 @@ class Nav extends React.Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
                   <li className={"nav-item " + (home ? 'active' : '')}>
-                      <a className="nav-link" href="#">Home</a>
+                      <a className="nav-link" href="#" onClick={this.props.homeCallback}>Home</a>
                   </li>
                   <li className={"nav-item " + (favorites ? 'active' : '')}>
                       <a className="nav-link" href="#" onClick={this.handleFavorites}>Favorites</a>
