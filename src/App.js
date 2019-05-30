@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import {Header} from './components/Header'
-import Nav from './components/Nav'
-import Content from './components/Content'
+import {Header} from './components/Header';
+import Nav from './components/Nav';
+import Content from './components/Content';
 import Axios from 'axios';
+import {Footer} from './components/Footer';
 
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {books: [], renderState: "favorites"};
+    this.state = {books: [], renderState: "home"};
 
     this.removeFavorite = this.removeFavorite.bind(this);
   }
@@ -21,10 +22,21 @@ class App extends React.Component {
         <Nav
           submitCallback={(input) => this.handleSubmit(input)}
           favoritesCallback={() => this.handleFavorites()}
+          homeCallback={() => this.handleHome()}
         />
-        <Content books={this.state.books} removeCallback={(id) => this.removeFavorite(id)} renderState={this.state.renderState}/>
+        <Content 
+          books={this.state.books} 
+          removeCallback={(id) => this.removeFavorite(id)} 
+          renderState={this.state.renderState}
+        />
+        <Footer />
       </div>
     );
+  }
+
+  handleHome(){
+    this.setState({renderState: 'home'})
+    console.log('home');
   }
 
   handleFavorites(){
@@ -39,7 +51,7 @@ class App extends React.Component {
   removeFavorite(id){
     var favorites = JSON.parse(localStorage.getItem("favorites"));
     for(var i = 0; i < favorites.books.length; i++){
-      if(favorites.books[i].id == id){
+      if(favorites.books[i].id === id){
         favorites.books.splice(i, 1);
         break;
       }
