@@ -4,6 +4,7 @@ import {Header} from './components/Header'
 import Nav from './components/Nav'
 import Content from './components/Content'
 import Axios from 'axios';
+import {Footer} from './components/Footer.js';
 
 class App extends React.Component {
   constructor(props){
@@ -21,8 +22,10 @@ class App extends React.Component {
         <Nav
           submitCallback={(input) => this.handleSubmit(input)}
           favoritesCallback={() => this.handleFavorites()}
+          renderState={this.state.renderState}
         />
         <Content books={this.state.books} removeCallback={(id) => this.removeFavorite(id)} renderState={this.state.renderState}/>
+        <Footer />
       </div>
     );
   }
