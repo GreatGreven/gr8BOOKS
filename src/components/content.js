@@ -3,9 +3,6 @@ import SearchResult from './SearchResult.js'
 import Favorite from './Favorite.js'
 
 class Content extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   render(){
     const renderState = this.props.renderState;
@@ -32,7 +29,7 @@ class Content extends React.Component {
           <div className="container">
               <h1 className="display-4">Welcome!</h1>
               <p className="lead">
-                This is an application where you can search for books you like and add them to and add them to your favorite list. 
+                This is an application where you can search for books you like and add them to and add them to your favorite list.
               </p>
             </div>
           </div>
