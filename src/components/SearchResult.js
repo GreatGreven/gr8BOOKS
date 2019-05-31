@@ -38,12 +38,16 @@ class SearchResult extends React.Component {
         author += a;
       });
     }
+    var image = '';
+    if (this.props.book.volumeInfo.imageLinks != null) {
+      var image = this.props.book.volumeInfo.imageLinks.smallThumbnail;
+    }
 
     return(
       <div className="p-1 mt-1 mb-1 bg-light d-flex flex-wrap">
         <div className="mr-auto d-flex">
           <div className="mr-1">
-            <img src={this.props.book.volumeInfo.imageLinks.smallThumbnail}></img>
+            <img src={image}></img>
             <h6><b>Author: </b><br/>{author}</h6>
             <h6><b>Date: </b><br/>{this.props.book.volumeInfo.publishedDate}</h6>
             <button className="btn btn-primary w-100" onClick={this.handleSave}>Save</button>

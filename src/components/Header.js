@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function Header() {
+export function Header(){
     return (
-        <header className="">
+        <header>
             <h1 className="display-1 text-center">GR8 Books</h1>
         </header>
     );

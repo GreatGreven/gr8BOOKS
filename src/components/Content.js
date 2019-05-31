@@ -3,7 +3,6 @@ import SearchResult from './SearchResult.js'
 import Favorite from './Favorite.js'
 
 class Content extends React.Component {
-
   render(){
     const renderState = this.props.renderState;
     if(renderState === "favorites"){
@@ -25,8 +24,8 @@ class Content extends React.Component {
     } else if (renderState === 'home'){
       return (
         <div id="content">
-        <div className="jumbotron jumbotron-fluid mb-auto">
-          <div className="container">
+          <div className="jumbotron jumbotron-fluid">
+            <div className="container">
               <h1 className="display-4">Welcome!</h1>
               <p className="lead">
                 This is an application where you can search for books you like and add them to and add them to your favorite list.

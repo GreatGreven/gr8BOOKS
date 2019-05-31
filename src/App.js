@@ -9,34 +9,58 @@ import {Footer} from './components/Footer.js';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {books: [], renderState: "home"};
-
+    this.state = {
+      books: [], 
+      renderState: "home", 
+      wrapperSize: {},
+      contentSize: {},
+      headerSize: {},
+      navSize: {},
+    };
     this.removeFavorite = this.removeFavorite.bind(this);
   }
 
-  render(){
+  refCallback = element => {
+    if (element) {
+      this.elementRef = element;
+      this.setState({wrapperSize: element.clientHeight});
+    }
+  };
 
+  componentDidUpdate() {
+    if(this.doReportSize){
+      this.setState({wrapperSize: this.elementRef.clientHeight})
+      this.doReportSize = false;
+    }
+  }
+
+  render(){
     return(
-      <div className="container-fluid">
-        <Header />
-        <Nav
+      <div className="container-fluid h-100">
+        <div id="wrapper" ref={this.refCallback}>
+          <Header/>
+          <Nav
           submitCallback={(input) => this.handleSubmit(input)}
           favoritesCallback={() => this.handleFavorites()}
           renderState={this.state.renderState}
           homeCallback={() => this.handleHome()}
         />
-        <Content
+          <Content
           books={this.state.books}
           removeCallback={(id) => this.removeFavorite(id)}
-          renderState={this.state.renderState}/>
-        <Footer />
+          renderState={this.state.renderState}
+          />
+        </div>
+        <Footer 
+          wrapperSize={this.state.wrapperSize}
+        />
       </div>
     );
   }
 
   handleHome(){
     this.setState({renderState: 'home'})
-    console.log('home');
+    this.doReportSize = true;
   }
 
   handleFavorites(){
@@ -45,7 +69,7 @@ class App extends React.Component {
       favorites = {books: []};
     }
     this.setState({books: favorites.books, renderState: "favorites"});
-
+    this.doReportSize = true;
   }
 
   removeFavorite(id){
@@ -58,14 +82,15 @@ class App extends React.Component {
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
     this.setState({books: favorites.books, renderState: this.state.renderState})
+    this.doReportSize = true;
   }
-
 
   handleSubmit(input){
     Axios.get("https://www.googleapis.com/books/v1/volumes?maxResults=40&q=" + input)
       .then(jsonData => {
         this.setState({books: jsonData.data.items, renderState: "search"});
       });
+      this.doReportSize = true;  
   }
 }
 
