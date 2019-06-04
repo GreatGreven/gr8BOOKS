@@ -4,4 +4,5 @@ I början av projektet var det ingen i gruppen som hade någon erfarenhet med n�
 Vi tror att alla 3 ramverken vi kollade på (Angular, Vue och React) hade kunnat funka ungefär lika bra men vi bestämde oss för att använda React då det var så lätt att komma igång och arbeta med alla dokumentation som fanns tillgänglig.
 
 [1] https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d
+
 [2] https://reactjs.org/docs/getting-started.html
