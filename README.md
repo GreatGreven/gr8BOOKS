@@ -6,3 +6,10 @@ Vi tror att alla 3 ramverken vi kollade på (Angular, Vue och React) hade kunnat
 [1] https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d
 
 [2] https://reactjs.org/docs/getting-started.html
+
+
+## För att starta hemsidan
+Node.js måste vara installerat.
+1. Navigera till rot-mappen i en kommandotolk
+2. skriv **npm install** för att installera dependencies då dessa inte är med i repot.
+3. skriv **npm start** för att starta upp sidan.
